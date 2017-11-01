@@ -52,25 +52,31 @@
 (global-set-key [?\C-x ?w] 'kill-region)
 (global-set-key [?\C-x ?d] 'ediff-buffers)
 (global-set-key [?\C-x ?p] 'goto-match-paren)
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <left>") 'windmove-left)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-c <left>") 'previous-buffer)
+(global-set-key (kbd "C-c <right>") 'next-buffer)
 
-(define-ibuffer-op replace-string (from-str to-str)
-  "Perform a `replace-string' in marked buffers."
-  (:interactive
-   (let* ((from-str (read-from-minibuffer "Replace string: "))
-	  (to-str (read-from-minibuffer (concat "Replace " from-str
-						" with: "))))
-     (list from-str to-str))
-   :opstring "replaced in"
-   :complex t
-   :modifier-p :maybe)
-  (save-window-excursion
-    (switch-to-buffer buf)
-    (save-excursion
-      (goto-char (point-min))
-      (let ((case-fold-search ibuffer-case-fold-search))
-	(while (search-forward from-str nil t)
-	  (replace-match to-str nil t))))
-        t))
+;; (define-ibuffer-op replace-string (from-str to-str)
+;;   "Perform a `replace-string' in marked buffers."
+;;   (:interactive
+;;    (let* ((from-str (read-from-minibuffer "Replace string: "))
+;; 	  (to-str (read-from-minibuffer (concat "Replace " from-str
+;; 						" with: "))))
+;;      (list from-str to-str))
+;;    :opstring "replaced in"
+;;    :complex t
+;;    :modifier-p :maybe)
+;;   (save-window-excursion
+;;     (switch-to-buffer buf)
+;;     (save-excursion
+;;       (goto-char (point-min))
+;;       (let ((case-fold-search ibuffer-case-fold-search))
+;; 	(while (search-forward from-str nil t)
+;; 	  (replace-match to-str nil t))))
+;;         t))
 (defun js-no-newline ()
   (setq mode-require-final-newline nil)
   (setq require-final-newline nil))
