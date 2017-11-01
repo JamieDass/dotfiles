@@ -13,6 +13,10 @@
 				   (blink-matching-open))))
 	          (when matching-text (message matching-text))))
 
+;;;; Use Shift+Arrow to move to window
+;; (when (fboundp 'windmove-default-keybindings)
+;;   (windmove-default-keybindings))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
