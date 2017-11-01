@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/style")
-(load "column-enforce-mode.el")
+;;(load "column-enforce-mode.el")
 (defadvice show-paren-function
     (after show-matching-paren-offscreen activate)
         "If the matching paren is offscreen, show the matching line in the
