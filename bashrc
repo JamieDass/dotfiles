@@ -39,9 +39,26 @@ function rl()
 }
 function xd()
 {
-    if [[ $@ == "-" ]]; then
+    if [[ $@ == -* ]]; then
+        echo "ok"
 	cd $1;
     fi
+    cd $1;
+
+}
+
+_ocd() {
+    local cmd="${1##*/}"
+    local cur opts drs
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    opts=$(dirs -v)
+if [[ ${cur} == -* ]]; then
+   printf "\n"
+   echo "$opts"
+fi;
+
+#    printf "\n"
+#    echo "$opts"
 }
 
 _wcd() {
@@ -55,7 +72,11 @@ _wcd() {
 #    COMPREPLY=($(compgen -W "$opts" -- ${cur}))
 }
 #export PROMPT_COMMAND='history -a'
-complete -F _wcd xd
+complete -F _wcd zd
+complete -d cd
+complete -F _ocd jd
+alias jd=cd
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=200000
 HISTFILESIZE=200000
