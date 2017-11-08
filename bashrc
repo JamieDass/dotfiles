@@ -98,5 +98,3 @@ export QT5PATH=/Users/jamie/Qt5.7/5.7/clang_64/bin
 export CARTAWORKHOME=/Users/jamie/cartawork
 export PATH=/opt/casa/02/bin:$PATH
 export PATH=$HOME/Qt5.7/5.7/clang_64/bin:$PATH
-
-source acd_func.sh
