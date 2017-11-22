@@ -1,14 +1,13 @@
 GLOBUS_LOCATION=/opt/ldg
 export GLOBUS_LOCATION
 alias ll="ls -l"
-alias desy="source ~/desy_ssh"
-alias naf="source ~/naf"
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias sscp="scp $1 dassoula@atlas31.desy.de:~/www/files/."
-alias countChar="source /Users/jamie/Documents/Work/ATLMCPROD/countChars.sh ."
 alias gbpurge='git branch --merged | grep -Ev "(\*|master|develop|staging)" | xargs -n 1 git branch -d'
 alias nrao="ssh -Y jdassoul@ssh.aoc.nrao.edu"
 alias nvnc="ssh -N -C -L 5901:casa-dev-10.aoc.nrao.edu:5901 jdassoul@ssh.aoc.nrao.edu"
+
+if [[ $(hostname -s) = JamieMBP ]]; then
+    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+fi
 
 if [ -f ${GLOBUS_LOCATION}/etc/globus-user-env.sh ] ; then
     . ${GLOBUS_LOCATION}/etc/globus-user-env.sh
@@ -21,22 +20,13 @@ function mkalias()
         alias $1="$2"
     fi;
 }
-function univ() {
-    #do things with parameters like $1 such as
-    ssh -XY dassoula@thuner-gw$1.cpp.ualberta.ca
-}
-alias ua=univ
-function rl()
-{
-    if [ -f ~/rootlogon.C ]
-    then
-	mv ~/rootlogon.C ~/rootlogonj.C
-	echo   "rootlogonj.C"
-    else
-	mv ~/rootlogonj.C ~/rootlogon.C
-	echo   "rootlogon.C"
-    fi;
-}
+
+if [[ $(hostname -s) = casa-dev-10 ]]; then
+    source /export/home/casa-dev-10-2/jdassoul/casa/casainit.sh
+    export LD_LIBRARY_PATH=/export/home/casa-dev-10-2/jdassoul/casa/lib/:$LD_LIBRARY_PATH
+fi
+alias dev='ssh -Y casa-dev-10'
+
 function xd()
 {
     if [[ $@ == -* ]]; then
@@ -98,4 +88,4 @@ export QT5PATH=/Users/jamie/Qt5.7/5.7/clang_64/bin
 export CARTAWORKHOME=/Users/jamie/cartawork
 export PATH=/opt/casa/02/bin:$PATH
 export PATH=$HOME/Qt5.7/5.7/clang_64/bin:$PATH
-source .acd_func
+source ~/.acd_func
