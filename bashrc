@@ -24,6 +24,9 @@ function mkalias()
 if [[ $(hostname -s) = casa-dev-10 ]]; then
     source /export/home/casa-dev-10-2/jdassoul/casa/casainit.sh
     export LD_LIBRARY_PATH=/export/home/casa-dev-10-2/jdassoul/casa/lib/:$LD_LIBRARY_PATH
+    export WORKHOME=/export/home/casa-dev-10-2/jdassoul
+    export CASAHOME=/export/home/casa-dev-10-2/jdassoul/casa
+    export CARTAWORKHOME=/export/home/casa-dev-10-2/jdassoul/carta
 fi
 alias dev='ssh -Y casa-dev-10'
 
