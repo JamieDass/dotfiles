@@ -25,22 +25,8 @@ DYLD_LIBRARY_PATH=$HOME/boost/stage/lib:${DYLD_LIBRARY_PATH}
 export DYLD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib:$LD_LIBRARY_PATH
 #export DYLD_LIBRARY_PATH=/System/Library/Frameworks/Python.framework/Versions/Current:$DYLD_LIBRARY_PATH
-#source '/usr/local/root/bin/thisroot.sh'  #new
-source '/Users/jamie/old_root/bin/thisroot.sh' #old
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-
-test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
-
-test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
-
-test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
-
-test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
-
-test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
-
-test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
 
 test -r @PREFIX@/bin/init.sh && . @PREFIX@/bin/init.sh
 

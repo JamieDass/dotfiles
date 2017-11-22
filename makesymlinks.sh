@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc emacs bash_profile acd_func"    # list of files/folders to symlink in homedir
+files="bashrc emacs acd_func"    # list of files/folders to symlink in homedir
 
 ##########
 
